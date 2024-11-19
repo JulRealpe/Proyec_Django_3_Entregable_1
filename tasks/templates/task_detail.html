@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{task.title}}
+
+{{error}}
+
+<form method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+
+  <button>
+    ACTUALIZAR
+  </button>
+</form>
+
+<form action="{% url 'delete_task' task.id %}" method="POST">
+  {% csrf_token %}
+  <button>
+    AGREGAR
+  </button>
+</form>
+
+<form action="{% url 'complete_task' task.id %}" method="POST">
+  {% csrf_token %}
+  <button>
+    REALIZADO
+  </button>
+</form>
+
+<form action="{% url 'delete_task' task.id %}" method="POST">
+  {% csrf_token %}
+  <button>
+    ELIMINAR
+  </button>
+</form>
+
+<form action="{% url 'delete_task' task.id %}" method="POST">
+  {% csrf_token %}
+  <button>
+    INHABILITAR
+  </button>
+</form>
+
+{% endblock %}

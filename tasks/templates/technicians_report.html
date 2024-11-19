@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Listado de Técnicos con Valores por Mes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Técnico</th>
+      <th>Horas Trabajadas</th>
+      <th>Pago Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for report in technicians_report %}
+    <tr>
+      <td>{{ report.technician.name }}</td>
+      <td>{{ report.total_hours }}</td>
+      <td>${{ report.total_payment }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

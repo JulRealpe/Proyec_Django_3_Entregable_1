@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Cronograma de Asistencia de Técnicos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Técnico</th>
+      <th>Fecha</th>
+      <th>Horas Trabajadas</th>
+      <th>Orden de Servicio</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for attendance in attendances %}
+    <tr>
+      <td>{{ attendance.technician.name }}</td>
+      <td>{{ attendance.date }}</td>
+      <td>{{ attendance.hours_worked }}</td>
+      <td>{{ attendance.task.title }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

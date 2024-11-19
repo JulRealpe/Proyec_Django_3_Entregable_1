@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <h1>REGISTRARSE</h1>
+
+  {{ error }}
+
+  <form action="/signup/" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    
+    <div class="form-group">
+      <label for="email"> email</label>
+      <input type="email" name="email" id="email" class="form-control" required>
+    </div>
+
+  
+    <div class="form-group">
+      <label for="rol">Rol</label>
+      <select name="rol" id="rol" class="form-control" required>
+        <option value="">Seleccione un rol</option>
+        <option value="admin">Gerente</option>
+        <option value="admin">Supervisor</option>
+        <option value="usuario">Tecnico</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">REGISTRATE</button>
+  </form>
+</div>
+
+{% endblock %}

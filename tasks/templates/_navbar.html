@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">REDECOM INGENERIA SAS</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a href="/" class="nav-link">INICIO</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a href="{% url 'tasks_completed' %}" class="nav-link"
+            >NOMINA</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'tasks_completed' %}" class="nav-link">ASISTENCIA</a>
+        </li>
+      </li>
+      
+      <li class="nav-item">
+        <a href="{% url 'tasks' %}" class="nav-link">ORDEN DE SERVICIO </a>
+      </li>
+        <li class="nav-item">
+          <a href="{% url 'create_task' %}" class="nav-link">MATERIAL</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">CERRAR SESION</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a href="/signin" class="nav-link">INICIAR SESION</a>
+        </li>
+        <li class="nav-item">
+          <a href="/signup" class="nav-link">REGISTRARSE</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
